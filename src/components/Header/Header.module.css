@@ -1,0 +1,73 @@
+.headerContainer {
+    display: flex;
+    width: 1184px;
+    height: 48px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.logoImg {
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+}
+
+.logoText {
+    font-weight: 500;
+    line-height: 24px;
+    font-size: 20px;
+    letter-spacing: -2%;
+}
+
+.navContainer {
+    display: flex;
+    gap: 28px;
+}
+
+.navLink {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    color: rgba(18, 20, 23, 1);
+}
+
+.authLink {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    color: rgba(18, 20, 23, 1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.registerContainer {
+    display: flex;
+    gap: 16px;
+}
+
+.registerContainer a {
+    text-decoration: none;
+    font-size: 16px;
+    color: rgba(18, 20, 23, 1);
+    line-height: 20px;
+    font-weight: 700;
+
+}
+
+.registerLink {}

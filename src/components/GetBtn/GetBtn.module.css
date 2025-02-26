@@ -1,0 +1,11 @@
+.getBtn {
+    width: 267px;
+    height: 60px;
+    background-color: rgba(244, 197, 80, 1);
+    border: none;
+    border-radius: 12px;
+
+    font-weight: 700;
+    line-height: 28px;
+    font-size: 18px;
+}
