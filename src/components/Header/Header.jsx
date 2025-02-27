@@ -5,25 +5,27 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <header className={s.headerContainer}>
-            <div className={s.logoContainer}>
-                <img src={logo} alt="LearnLingo Logo" className={s.logoImg} />
-                <p className={s.logoText}>LearnLingo</p>
-            </div>
+        <div className="container">
+            <header className={s.headerContainer}>
+                <div className={s.logoContainer}>
+                    <img src={logo} alt="LearnLingo Logo" className={s.logoImg} />
+                    <p className={s.logoText}>LearnLingo</p>
+                </div>
 
-            <nav className={s.navContainer}>
-                <Link to="/" className={s.navLink}>Home</Link>
-                <Link to="/teachers" className={s.navLink}>Teachers</Link>
-            </nav>
+                <nav className={s.navContainer}>
+                    <Link to="/" className={s.navLink}>Home</Link>
+                    <Link to="/teachers" className={s.navLink}>Teachers</Link>
+                </nav>
 
-            <nav className={s.registerContainer}>
-                <Link to="/login" className={s.authLink}>
-                    <img src={loginIcon} alt="Login" className={s.icon} />
-                    Log in
-                </Link>
-                <Link to="/register" className={s.authLink}>Registration</Link>
-            </nav>
-        </header>
+                <nav className={s.registerContainer}>
+                    <Link to="/login" className={s.authLink}>
+                        <img src={loginIcon} alt="Login" className={s.icon} />
+                        Log in
+                    </Link>
+                    <Link to="/register"><button className={s.registerLink}>Registration</button></Link>
+                </nav>
+            </header>
+        </div>
     );
 };
 

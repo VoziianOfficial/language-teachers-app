@@ -1,5 +1,5 @@
 .HomeContainer {
-    width: 1440px;
+    max-width: 1440px;
     height: 790px;
     padding-top: 20px;
     padding-left: 64px;

@@ -1,0 +1,33 @@
+.heroContainer {
+    display: flex;
+    margin-top: 20px;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 56px;
+    margin-bottom: 32px;
+}
+
+.spanText {
+    background-color: rgba(251, 233, 186, 1);
+    border-radius: 8px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.textWrapper {
+    width: 720px;
+    padding-top: 98px;
+    padding-bottom: 98px;
+    margin-right: 108px;
+    margin-left: 64px;
+}
+
+.text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 64px;
+}
