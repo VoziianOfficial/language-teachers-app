@@ -14,6 +14,25 @@ const Hero = () => {
                 </div>
                 <img src={hero} alt="hello" />
             </div>
+
+            <div className={s.borderContainer}>
+                <div className={s.info}>
+                    <h2 className={s.infoSum}>32,000 +</h2>
+                    <p className={s.textInfo}>Experienced tutors</p>
+                </div>
+                <div className={s.info}>
+                    <h2 className={s.infoSum}>300,000 +</h2>
+                    <p className={s.textInfo}>5-star tutor reviews</p>
+                </div>
+                <div className={s.info}>
+                    <h2 className={s.infoSum}>120 +</h2>
+                    <p className={s.textInfo}>Subjects taught</p>
+                </div>
+                <div className={s.info}>
+                    <h2 className={s.infoSum}>200 +</h2>
+                    <p className={s.textInfo}>Tutor nationalities</p>
+                </div>
+            </div>
         </div>
     )
 }

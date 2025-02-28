@@ -1,6 +1,7 @@
 .heroContainer {
     display: flex;
     margin-top: 20px;
+    margin-bottom: 24px;
 }
 
 .title {
@@ -30,4 +31,33 @@
     font-size: 16px;
     line-height: 22px;
     margin-bottom: 64px;
+}
+
+.borderContainer {
+    display: flex;
+    width: 1312px;
+    height: 116px;
+    border: 1.5px dashed rgba(244, 197, 80, 1);
+    border-radius: 30px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+}
+
+.infoSum {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 32px;
+    margin-right: 16px;
+}
+
+.textInfo {
+    width: 96px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
 }
