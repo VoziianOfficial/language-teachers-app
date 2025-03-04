@@ -1,0 +1,15 @@
+.levelContainer {
+    width: 221px;
+    height: 48px;
+}
+
+.labelLevel {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(138, 138, 137, 1);
+}
+
+.selectControl {
+    margin-top: 8px;
+}

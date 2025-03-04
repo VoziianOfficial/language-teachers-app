@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "teachers-fee67"
-  }
+    "learn-lingo-6d1a1": "learn-lingo-6d1a1",
+    "default": "learn-lingo-6d1a1"
+  },
+  "targets": {},
+  "etags": {}
 }
