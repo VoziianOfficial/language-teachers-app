@@ -5,7 +5,7 @@ import NoFindTeacher from "../NoFindTeacher/NoFindTeacher";
 import s from './TeachersList.module.css'
 
 
-const ListTeachers = ({ filtered, lvl }) => {
+const TeachersList = ({ filtered, lvl }) => {
     const [teachersPerPage, setTeachersPerPage] = useState(4);
     const [favoritesPerPage, setFavoritesPerPage] = useState(4);
     const [teachers, setTeachers] = useState(null);
@@ -52,4 +52,4 @@ const ListTeachers = ({ filtered, lvl }) => {
     );
 };
 
-export default ListTeachers;
+export default TeachersList;

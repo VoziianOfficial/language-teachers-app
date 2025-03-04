@@ -9,7 +9,7 @@ import {
 import { toast } from "react-toastify";
 import { auth } from "./firebase";
 
-// ======================== USER REGISTRATION
+// ======================= USER REGISTRATION
 export function whenUserRegister(dataForm) {
     const { name, email, password } = dataForm;
     createUserWithEmailAndPassword(auth, email, password)
