@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import TeachersList from "../../components/Teachers/TeachersList/TeachersList";
 import SearchBar from "../../components/Teachers/SearchBar/SearchBar";
-import { getAllFiltered } from "../../firebase/api";
 import s from './Teachers.module.css'
 
 const Teachers = () => {

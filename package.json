@@ -1,5 +1,5 @@
 {
-  "name": "language-teachers-app",
+  "name": "learn-lingo",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "upload": "node uploadTeachers.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -15,6 +16,7 @@
     "@hookform/resolvers": "^4.1.2",
     "@mui/material": "^6.4.6",
     "@reduxjs/toolkit": "^2.6.0",
+    "dotenv": "^16.4.7",
     "firebase": "^11.4.0",
     "formik": "^2.4.6",
     "process": "^0.11.10",
