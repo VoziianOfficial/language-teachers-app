@@ -2,6 +2,38 @@
     display: flex;
     gap: 20px;
     margin-top: 96px;
-    width: 221px;
-    height: 74px;
+    margin-bottom: 32px;
+}
+
+.text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(138, 138, 137, 1);
+    margin-bottom: 8px;
+}
+
+
+.selectLang {
+    border: none;
+    color: rgba(18, 20, 23, 1);
+    height: 48px;
+
+}
+
+
+
+.selectLevel {
+    border: none;
+    color: rgba(18, 20, 23, 1);
+    height: 48px;
+}
+
+
+.selectPrice {
+    width: 80px;
+    border: none;
+    color: rgba(18, 20, 23, 1);
+    height: 48px;
+
 }

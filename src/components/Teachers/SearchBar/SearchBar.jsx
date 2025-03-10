@@ -29,7 +29,7 @@ const SearchBar = ({ onSearch }) => {
             <div className={s.searchContainer}>
                 <div className={s.langWrap}>
                     <p className={s.text}>Languages</p>
-                    <select value={languages} onChange={(e) => handleFilterChange('languages', e.target.value)}>
+                    <select className={s.selectLang} value={languages} onChange={(e) => handleFilterChange('languages', e.target.value)}>
                         <option value="French">French</option>
                         <option value="English">English</option>
                         <option value="Spanish">Spanish</option>
@@ -41,8 +41,8 @@ const SearchBar = ({ onSearch }) => {
                 </div>
 
                 <div className={s.levelsWrap}>
-                    <p className={s.text}>Levels</p>
-                    <select value={levels} onChange={(e) => handleFilterChange('levels', e.target.value)}>
+                    <p className={s.text}>Level of knowledge</p>
+                    <select className={s.selectLevel} value={levels} onChange={(e) => handleFilterChange('levels', e.target.value)}>
                         <option value="A1 Beginner">A1 Beginner</option>
                         <option value="A2 Elementary">A2 Elementary</option>
                         <option value="B1 Intermediate">B1 Intermediate</option>
@@ -53,13 +53,13 @@ const SearchBar = ({ onSearch }) => {
                 </div>
 
                 <div className={s.praiseWrap}>
-                    <p className={s.text}>Price per hour</p>
-                    <select value={price} onChange={(e) => handleFilterChange('price', e.target.value)}>
-                        <option value="25">25</option>
-                        <option value="28">28</option>
-                        <option value="30">30</option>
-                        <option value="32">32</option>
-                        <option value="35">35</option>
+                    <p className={s.text}>Price</p>
+                    <select className={s.selectPrice} value={price} onChange={(e) => handleFilterChange('price', e.target.value)}>
+                        <option value="25">25 $</option>
+                        <option value="28">28 $</option>
+                        <option value="30">30 $</option>
+                        <option value="32">32 $</option>
+                        <option value="35">35 $</option>
                     </select>
                 </div>
             </div>
