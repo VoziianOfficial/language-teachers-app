@@ -15,7 +15,7 @@ const TeachersList = () => {
                 ...doc.data(),
             }));
             setTeachers(teachersArray);
-            setFilteredTeachers(teachersArray);
+            setFilteredTeachers(teachersArray); // По умолчанию показываем всех преподавателей
         };
 
         fetchTeachers();
@@ -26,8 +26,11 @@ const TeachersList = () => {
 
         const filtered = teachers.filter((teacher) => {
             return (
+                // Фильтрация по языку
                 (!language || teacher.languages?.includes(language)) &&
-                (!level || teacher.levels?.includes(level)) &&
+                // Фильтрация по уровню
+                (!level || teacher.levels?.some((teacherLevel) => teacherLevel === level)) &&
+                // Фильтрация по цене
                 (!price || teacher.price_per_hour <= Number(price))
             );
         });
@@ -39,12 +42,13 @@ const TeachersList = () => {
         <div>
             <SearchBar onSearch={handleSearch} />
             <ul>
+                {filteredTeachers.length === 0 && <p>Нет преподавателей, соответствующих фильтрам.</p>}
                 {filteredTeachers.map((teacher) => (
                     <li key={teacher.id}>
                         <h3>{teacher.name} {teacher.surname}</h3>
-                        <p>Языки: {teacher.languages?.join(", ")}</p>  {/* Отображаем массив */}
-                        <p>Уровни: {teacher.levels?.join(", ")}</p>  {/* Отображаем массив */}
-                        <p>Цена: ${teacher.price_per_hour}</p>  {/* Используем правильный ключ */}
+                        <p>Price / 1 hour:  ${teacher.price_per_hour}</p>
+                        <p>Speaks: {teacher.languages?.join(", ")}</p>
+                        <p>{teacher.levels?.join(", ")}</p>
                     </li>
                 ))}
             </ul>
@@ -53,3 +57,4 @@ const TeachersList = () => {
 };
 
 export default TeachersList;
+
