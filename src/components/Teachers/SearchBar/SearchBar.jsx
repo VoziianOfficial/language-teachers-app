@@ -14,7 +14,6 @@ const SearchBar = ({ onSearch }) => {
         });
     };
 
-
     return (
         <div className={s.container}>
             <select value={languages} onChange={(e) => setLanguages(e.target.value)}>
@@ -23,6 +22,8 @@ const SearchBar = ({ onSearch }) => {
                 <option value="Spanish">Spanish</option>
                 <option value="German">German</option>
                 <option value="Italian">Italian</option>
+                <option value="Vietnamese">Vietnamese</option>
+                <option value="Mandarin Chinese">Mandarin Chinese</option>
 
             </select>
 
@@ -35,12 +36,13 @@ const SearchBar = ({ onSearch }) => {
                 <option value="Proficient">C2 Proficient</option>
             </select>
 
-            <input
-                type="number"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-                placeholder="30$"
-            />
+            <select value={price} onChange={(e) => setPrice(e.target.value)}>
+                <option value="25">25</option>
+                <option value="28">28</option>
+                <option value="30">30</option>
+                <option value="32">32</option>
+                <option value="35">35</option>
+            </select>
 
             <button onClick={handleSearch}>🔍 Поиск</button>
         </div>

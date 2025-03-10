@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase/firebaseConfig";
-
 import SearchBar from "../SearchBar/SearchBar";
 
 const TeachersList = () => {
@@ -27,9 +26,9 @@ const TeachersList = () => {
 
         const filtered = teachers.filter((teacher) => {
             return (
-                (!language || teacher.languages?.includes(language)) &&  // Учитываем массив
-                (!level || teacher.levels?.includes(level)) &&  // Учитываем массив
-                (!price || teacher.price_per_hour <= Number(price))  // Используем корректное название
+                (!language || teacher.languages?.includes(language)) &&
+                (!level || teacher.levels?.includes(level)) &&
+                (!price || teacher.price_per_hour <= Number(price))
             );
         });
 
