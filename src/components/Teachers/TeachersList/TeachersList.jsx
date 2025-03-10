@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase/firebaseConfig";
 import SearchBar from "../SearchBar/SearchBar";
+import NoFindTeacher from '../NoFindTeacher/NoFindTeacher'
+
 
 const TeachersList = () => {
     const [teachers, setTeachers] = useState([]);
     const [filteredTeachers, setFilteredTeachers] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const teachersPerPage = 5;
 
     useEffect(() => {
         const fetchTeachers = async () => {
@@ -15,7 +19,7 @@ const TeachersList = () => {
                 ...doc.data(),
             }));
             setTeachers(teachersArray);
-            setFilteredTeachers(teachersArray); // По умолчанию показываем всех преподавателей
+            setFilteredTeachers(teachersArray);
         };
 
         fetchTeachers();
@@ -26,35 +30,67 @@ const TeachersList = () => {
 
         const filtered = teachers.filter((teacher) => {
             return (
-                // Фильтрация по языку
                 (!language || teacher.languages?.includes(language)) &&
-                // Фильтрация по уровню
                 (!level || teacher.levels?.some((teacherLevel) => teacherLevel === level)) &&
-                // Фильтрация по цене
                 (!price || teacher.price_per_hour <= Number(price))
             );
         });
 
         setFilteredTeachers(filtered);
+        setCurrentPage(1);
     };
+
+    // Логика пагинации
+    const indexOfLastTeacher = currentPage * teachersPerPage;
+    const indexOfFirstTeacher = indexOfLastTeacher - teachersPerPage;
+    const currentTeachers = filteredTeachers.slice(indexOfFirstTeacher, indexOfLastTeacher);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <div>
             <SearchBar onSearch={handleSearch} />
-            <ul>
-                {filteredTeachers.length === 0 && <p>Нет преподавателей, соответствующих фильтрам.</p>}
-                {filteredTeachers.map((teacher) => (
-                    <li key={teacher.id}>
-                        <h3>{teacher.name} {teacher.surname}</h3>
-                        <p>Price / 1 hour:  ${teacher.price_per_hour}</p>
-                        <p>Speaks: {teacher.languages?.join(", ")}</p>
-                        <p>{teacher.levels?.join(", ")}</p>
-                    </li>
+            {currentTeachers.length === 0 ? (
+                <NoFindTeacher />
+            ) : (
+                <ul>
+                    {currentTeachers.map((teacher) => (
+                        <li key={teacher.id}>
+                            <div style={{ display: "flex", alignItems: "center" }}>
+                                <img src={teacher.avatar_url} alt={teacher.name} style={{ width: 60, height: 60, borderRadius: "50%", marginRight: 10 }} />
+                                <h3>{teacher.name} {teacher.surname}</h3>
+                            </div>
+                            <p><strong>Price / 1 hour:</strong> ${teacher.price_per_hour}</p>
+                            <p><strong>Rating:</strong> {teacher.rating} stars</p>
+                            <p><strong>Speaks:</strong> {teacher.languages?.join(", ")}</p>
+                            <p><strong>Levels:</strong> {teacher.levels?.join(", ")}</p>
+                            <p><strong>Lessons Done:</strong> {teacher.lessons_done}</p>
+                            <p><strong>Experience:</strong> {teacher.experience}</p>
+                            <p><strong>Lesson Info:</strong> {teacher.lesson_info}</p>
+                            <p><strong>Conditions:</strong> {teacher.conditions?.join(", ")}</p>
+                            <div>
+                                <h4>Reviews:</h4>
+                                {teacher.reviews?.map((review, index) => (
+                                    <div key={index}>
+                                        <p><strong>{review.reviewer_name}:</strong> {review.comment} ({review.reviewer_rating} stars)</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            )}
+
+            {/* Пагинация */}
+            <div>
+                {[...Array(Math.ceil(filteredTeachers.length / teachersPerPage))].map((_, index) => (
+                    <button key={index} onClick={() => paginate(index + 1)}>
+                        {index + 1}
+                    </button>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };
 
 export default TeachersList;
-
