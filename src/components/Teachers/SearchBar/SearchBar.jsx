@@ -1,25 +1,26 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import s from './SearchBar.module.css';
+import { languages, levels, prices } from '../../../languages/info'; // Импортируем данные
 
 const SearchBar = ({ onSearch }) => {
-    const [languages, setLanguages] = useState('');
-    const [levels, setLevels] = useState('');
+    const [language, setLanguage] = useState('');
+    const [level, setLevel] = useState('');
     const [price, setPrice] = useState('');
 
     // Функция для обработки изменения фильтров
     const handleFilterChange = (field, value) => {
-        if (field === "languages") {
-            setLanguages(value);
-        } else if (field === "levels") {
-            setLevels(value);
+        if (field === "language") {
+            setLanguage(value);
+        } else if (field === "level") {
+            setLevel(value);
         } else if (field === "price") {
             setPrice(value);
         }
 
         onSearch({
-            language: field === "languages" ? value : languages,
-            level: field === "levels" ? value : levels,
+            language: field === "language" ? value : language,
+            level: field === "level" ? value : level,
             price: field === "price" ? value : price,
         });
     };
@@ -29,44 +30,37 @@ const SearchBar = ({ onSearch }) => {
             <div className={s.searchContainer}>
                 <div className={s.langWrap}>
                     <p className={s.text}>Languages</p>
-                    <select className={s.selectLang} value={languages} onChange={(e) => handleFilterChange('languages', e.target.value)}>
-                        <option value="French">French</option>
-                        <option value="English">English</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="German">German</option>
-                        <option value="Italian">Italian</option>
-                        <option value="Vietnamese">Vietnamese</option>
-                        <option value="Mandarin Chinese">Mandarin Chinese</option>
+                    <select className={s.selectLang} value={language} onChange={(e) => handleFilterChange('language', e.target.value)}>
+                        <option value="">Select language</option>
+                        {languages.map(lang => (
+                            <option key={lang.value} value={lang.value}>{lang.label}</option>
+                        ))}
                     </select>
                 </div>
 
                 <div className={s.levelsWrap}>
                     <p className={s.text}>Level of knowledge</p>
-                    <select className={s.selectLevel} value={levels} onChange={(e) => handleFilterChange('levels', e.target.value)}>
-                        <option value="A1 Beginner">A1 Beginner</option>
-                        <option value="A2 Elementary">A2 Elementary</option>
-                        <option value="B1 Intermediate">B1 Intermediate</option>
-                        <option value="B2 Upper-Intermediate">B2 Upper-Intermediate</option>
-                        <option value="C1 Advanced">C1 Advanced</option>
-                        <option value="C2 Proficient">C2 Proficient</option>
+                    <select className={s.selectLevel} value={level} onChange={(e) => handleFilterChange('level', e.target.value)}>
+                        <option value="">Select level</option>
+                        {levels.map(lvl => (
+                            <option key={lvl.value} value={lvl.value}>{lvl.label}</option>
+                        ))}
                     </select>
                 </div>
 
                 <div className={s.praiseWrap}>
                     <p className={s.text}>Price</p>
                     <select className={s.selectPrice} value={price} onChange={(e) => handleFilterChange('price', e.target.value)}>
-                        <option value="25">25 $</option>
-                        <option value="28">28 $</option>
-                        <option value="30">30 $</option>
-                        <option value="32">32 $</option>
-                        <option value="35">35 $</option>
+                        <option value="">Select price</option>
+                        {prices.map(prc => (
+                            <option key={prc.value} value={prc.value}>{prc.label}</option>
+                        ))}
                     </select>
                 </div>
             </div>
         </div>
     );
 };
-
 
 SearchBar.propTypes = {
     onSearch: PropTypes.func.isRequired,
