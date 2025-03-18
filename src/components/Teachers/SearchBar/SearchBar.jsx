@@ -31,7 +31,7 @@ const SearchBar = ({ onSearch }) => {
                 <div className={s.langWrap}>
                     <p className={s.text}>Languages</p>
                     <select className={s.selectLang} value={language} onChange={(e) => handleFilterChange('language', e.target.value)}>
-                        <option value="">Select language</option>
+                        <option value="">French</option>
                         {languages.map(lang => (
                             <option key={lang.value} value={lang.value}>{lang.label}</option>
                         ))}
@@ -41,7 +41,7 @@ const SearchBar = ({ onSearch }) => {
                 <div className={s.levelsWrap}>
                     <p className={s.text}>Level of knowledge</p>
                     <select className={s.selectLevel} value={level} onChange={(e) => handleFilterChange('level', e.target.value)}>
-                        <option value="">Select level</option>
+                        <option value="">A1 Beginner</option>
                         {levels.map(lvl => (
                             <option key={lvl.value} value={lvl.value}>{lvl.label}</option>
                         ))}
@@ -51,7 +51,7 @@ const SearchBar = ({ onSearch }) => {
                 <div className={s.praiseWrap}>
                     <p className={s.text}>Price</p>
                     <select className={s.selectPrice} value={price} onChange={(e) => handleFilterChange('price', e.target.value)}>
-                        <option value="">Select price</option>
+                        <option value="">30$</option>
                         {prices.map(prc => (
                             <option key={prc.value} value={prc.value}>{prc.label}</option>
                         ))}
