@@ -1,0 +1,63 @@
+.teacherList {
+    display: flex;
+    flex-direction: column;
+}
+
+.teacherItem {
+    background-color: rgba(255, 255, 255, 1);
+    margin-bottom: 32px;
+    border-radius: 24px 24px 0 0;
+    padding: 24px;
+    height: 328px;
+    width: 1184px;
+}
+
+.nameContent {
+    margin-left: 48px;
+}
+
+.Languages {
+    font-weight: 500;
+    font-size: 16px;
+    color: rgba(138, 138, 137, 1);
+    margin-bottom: 8px;
+}
+
+.wrapContainer {
+    display: flex;
+    align-items: center;
+}
+
+.infoWrap {
+    display: flex;
+    margin-left: 173px;
+}
+
+.textWithIcon {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.span {
+    margin-left: 16px;
+    margin-right: 16px;
+    color: rgba(18, 20, 23, 0.2);
+}
+
+.textStyles {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.priceValue {
+    color: rgb(14, 188, 14);
+    font-weight: 600;
+}
+
+.imgStar {
+    margin-right: 8px;
+}
